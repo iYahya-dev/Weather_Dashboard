@@ -1,0 +1,249 @@
+/* ============================================================
+   style.css — Weather Dashboard UI
+   Built on top of Bootstrap 5, matching the Finance Tracker style.
+   We override Bootstrap where needed for a cleaner look.
+   ============================================================ */
+
+/* Pull in the same modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Global base ─────────────────────────────────────────────
+   Apply our font and a soft off-white background sitewide.   */
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6fb;
+    color: #1e293b;
+    font-size: 15px;
+}
+
+/* ── Top navigation bar ──────────────────────────────────────
+   Same dark bar as Finance Tracker for consistency.          */
+.topnav {
+    background: #1e293b;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Brand / logo text on the left of the navbar */
+.topnav .brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+}
+
+/* The group of nav links on the right */
+.topnav .nav-links {
+    display: flex;
+    gap: 4px;
+}
+
+/* Each individual nav link */
+.topnav .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+}
+
+/* Hover and active state: brighten the link */
+.topnav .nav-links a:hover,
+.topnav .nav-links a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+/* ── Page wrapper ────────────────────────────────────────────
+   Centers content and adds top padding below the navbar.    */
+.page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+}
+
+/* ── Page heading ────────────────────────────────────────────
+   The h2 at the top of each page.                           */
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 24px;
+}
+
+/* ── Cards ───────────────────────────────────────────────────
+   White rounded boxes used for forms and content sections.  */
+.card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    background: #fff;
+}
+
+/* ── Weather card ────────────────────────────────────────────
+   The main weather display card — bigger and centered.      */
+.weather-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* City name at the top of the weather card */
+.city-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* Weather icon from the API */
+.weather-icon {
+    width: 120px;
+    height: 120px;
+    margin: 10px 0;
+}
+
+/* Large temperature display — main focal point */
+.temperature {
+    font-size: 64px;
+    font-weight: 700;
+    color: #6366f1;
+    margin: 20px 0;
+    line-height: 1;
+}
+
+/* Weather description text like "Clear sky" */
+.description {
+    font-size: 20px;
+    color: #64748b;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+/* Grid of weather details (2x2 layout) */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+/* Each detail box in the grid */
+.detail-box {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Label text like "Humidity" or "Wind Speed" */
+.detail-label {
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+/* The actual value like "65%" or "3.5 m/s" */
+.detail-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────
+   Override Bootstrap button styles to match our theme.      */
+.btn-primary {
+    background: #6366f1;
+    border: none;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #4f46e5;
+}
+
+/* ── Forms ────────────────────────────────────────────────────
+   Input fields and labels.                                   */
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.form-control {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* ── Alerts ───────────────────────────────────────────────────
+   Error messages shown when something goes wrong.           */
+.alert {
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+/* ── Responsive design ────────────────────────────────────────
+   Adjust layout for smaller screens.                        */
+@media (max-width: 600px) {
+    
+    .page-wrap {
+        padding: 24px 16px 40px;
+    }
+    
+    .weather-card {
+        padding: 30px 20px;
+    }
+    
+    .temperature {
+        font-size: 52px;
+    }
+    
+    .city-name {
+        font-size: 24px;
+    }
+    
+    .details-grid {
+        gap: 12px;
+    }
+    
+    .topnav {
+        padding: 0 20px;
+    }
+    
+}
